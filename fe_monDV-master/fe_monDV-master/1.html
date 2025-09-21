@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>Instagram Mockup</title>
+    <link rel="stylesheet" href="2.css" />
+    <!-- nhung css  -->
+    <link rel="stylesheet" href="./asscet/bootrap/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <div class="left">
+        <div class="brand">Instagram</div>
+        <ul class="nav">
+          <li>
+            <a href="#">
+              <img src="./icon house.png" alt="Trang chủ" class="nav-icon" />
+              Trang chủ
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./icon kinh lup.jpg" alt="Tìm kiếm" class="nav-icon" />
+              Tìm kiếm
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./icon la ban.jpg" alt="Khám phá" class="nav-icon" />
+              Khám phá
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./iocn reels.jpg" alt="Reels" class="nav-icon" />
+              Reels
+            </a>
+          </li>
+          <li>
+            <a href="#" class="notification">
+              <img src="./icon mess.webp" alt="Tin nhắn" class="nav-icon" />
+              Tin nhắn
+              <span class="notification-dot"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./icon taoj.png" alt="Tạo" class="nav-icon" />
+              Tạo
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="./icon person.png"
+                alt="Trang cá nhân"
+                class="nav-icon"
+              />
+              Trang cá nhân
+            </a>
+          </li>
+          <li>
+            <a href="#" class="huy1cham">
+              <img src="./3 soc.png" alt="Xem thêm" class="nav-icon" />
+              Xem thêm
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./meta.png" alt="Meta" class="nav-icon" />
+              Cũng của Meta
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <main class="right">
+        <article class="post">
+          <header class="post-header">
+            <div class="avatar"><img src="./anh ng.jpg" alt="anh nguoi" /></div>
+            <div class="user">
+              <div class="username">Huy lam fe</div>
+              <div class="time">1 ngày · <a href="#">Theo dõi</a></div>
+            </div>
+            <div class="more-options">...</div>
+          </header>
+
+          <img
+            class="post-image"
+            src="./anh content.jpg"
+            alt="Instagram post"
+          />
+
+          <div class="actions">
+            <a href="#" class="heart-btn"></a>
+            <a href="#" class="comment-btn"></a>
+            <a href="#" class="share-btn"></a>
+          </div>
+
+          <div class="comment-section">
+            <div class="comment">
+              <strong>hieu_kieu</strong> và những người khác đã thích
+            </div>
+            <div class="comment-input">
+              <input type="text" placeholder="Thêm bình luận..." />
+              <button>Đăng</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="post">
+          <header class="post-header">
+            <div class="avatar"><img src="./anh ng.jpg" alt="anh nguoi" /></div>
+            <div class="user">
+              <div class="username">Huy lam fe</div>
+              <div class="time">1 ngày · <a href="#">Theo dõi</a></div>
+            </div>
+            <div class="more-options">...</div>
+          </header>
+
+          <img
+            class="post-image"
+            src="./anh content.jpg"
+            alt="Instagram post"
+          />
+
+          <div class="actions">
+            <a href="#" class="heart-btn"></a>
+            <a href="#" class="comment-btn"></a>
+            <a href="#" class="share-btn"></a>
+          </div>
+
+          <div class="comment-section">
+            <div class="comment">
+              <strong>hoang_nguyen</strong> và những người khác đã thích
+            </div>
+            <div class="comment-input">
+              <input type="text" placeholder="Thêm bình luận..." />
+              <button>Đăng</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chat Box -->
+        <div class="chat-box" id="chatBox">
+          <div class="chat-header">
+            <span>Tin nhắn</span>
+            <button id="closeChat">×</button>
+          </div>
+          <div class="chat-messages">
+            <div class="message received">Xin chào 👋</div>
+            <div class="message sent">Hello!</div>
+          </div>
+          <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Nhập tin nhắn..." />
+            <button id="sendBtn">Gửi</button>
+          </div>
+        </div>
+
+        <!-- Nút mở chat -->
+        <div class="chat-toggle" id="chatToggle">
+          <span class="notification-badge">2</span>
+          💬 Tin nhắn
+        </div>
+      </main>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".heart-btn").forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            this.classList.toggle("active");
+          });
+        });
+      });
+
+      // Chat toggle
+      const chatToggle = document.getElementById("chatToggle");
+      const chatBox = document.getElementById("chatBox");
+      const closeChat = document.getElementById("closeChat");
+      const sendBtn = document.getElementById("sendBtn");
+      const chatInput = document.getElementById("chatInput");
+      const chatMessages = document.querySelector(".chat-messages");
+
+      chatToggle.addEventListener("click", () => {
+        chatBox.style.display = "flex";
+      });
+
+      closeChat.addEventListener("click", () => {
+        chatBox.style.display = "none";
+      });
+
+      sendBtn.addEventListener("click", () => {
+        const msg = chatInput.value.trim();
+        if (msg) {
+          const div = document.createElement("div");
+          div.classList.add("message", "sent");
+          div.textContent = msg;
+          chatMessages.appendChild(div);
+          chatInput.value = "";
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      });
+    </script>
+    <!-- nhung js -->
+    <script src="./asscet/bootrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
